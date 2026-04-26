@@ -1,0 +1,10 @@
+services:
+  ml-homework:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ml-homework
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: python src/modeling.py
