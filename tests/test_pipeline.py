@@ -1,8 +1,27 @@
-from src.preprocessing import clean_dataset, load_raw_data, split_dataset
+import pandas as pd
+
+from src.preprocessing import clean_dataset, split_dataset
+
+
+def make_sample_data(rows: int = 400) -> pd.DataFrame:
+    records = []
+    for index in range(rows):
+        platform = "twitter" if index % 2 == 0 else "reddit"
+        category = [-1, 0, 1][index % 3]
+        words = [f"word{item}" for item in range(1, (index % 25) + 2)]
+        words.append(f"sample{index}")
+        records.append(
+            {
+                "text": " ".join(words),
+                "category": category,
+                "platform": platform,
+            }
+        )
+    return pd.DataFrame(records)
 
 
 def test_clean_dataset_creates_target_and_features() -> None:
-    cleaned = clean_dataset(load_raw_data())
+    cleaned = clean_dataset(make_sample_data())
 
     expected_columns = {
         "text",
@@ -25,7 +44,7 @@ def test_clean_dataset_creates_target_and_features() -> None:
 
 
 def test_split_dataset_preserves_row_count() -> None:
-    cleaned = clean_dataset(load_raw_data())
+    cleaned = clean_dataset(make_sample_data())
     train_df, val_df, test_df = split_dataset(cleaned)
 
     assert len(train_df) + len(val_df) + len(test_df) == len(cleaned)
