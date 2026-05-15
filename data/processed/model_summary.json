@@ -1,0 +1,129 @@
+{
+  "best_overall": {
+    "family": "random_forest",
+    "variant": "rf_depth_None_leaf_1",
+    "feature_set": "engineered_tabular",
+    "params": "{\"max_depth\": null, \"min_samples_leaf\": 1, \"n_estimators\": 180}",
+    "val_mae": 0.07514477685359092,
+    "val_rmse": 1.4847868536226523,
+    "val_r2": 0.9997398162261821,
+    "test_mae": 0.06480320036967477,
+    "test_rmse": 1.1889001812696327,
+    "test_r2": 0.9998296789505621
+  },
+  "best_by_family": [
+    {
+      "family": "baseline_linear",
+      "variant": "baseline_linear",
+      "feature_set": "minimal_tabular",
+      "params": "{\"features\": [\"category\", \"sentiment_missing\", \"platform\"]}",
+      "val_mae": 68.50346629779196,
+      "val_rmse": 91.77927724672386,
+      "val_r2": 0.005874421861580159,
+      "test_mae": 68.18532612566447,
+      "test_rmse": 90.82394515178007,
+      "test_r2": 0.006018587899851213
+    },
+    {
+      "family": "extra_trees",
+      "variant": "et_depth_30_leaf_1",
+      "feature_set": "engineered_tabular",
+      "params": "{\"max_depth\": 30, \"min_samples_leaf\": 1, \"n_estimators\": 220}",
+      "val_mae": 0.08879556686095703,
+      "val_rmse": 1.5673402189468701,
+      "val_r2": 0.9997100797587677,
+      "test_mae": 0.08327253825353863,
+      "test_rmse": 1.6838135200374122,
+      "test_r2": 0.9996583625099892
+    },
+    {
+      "family": "gradient_boosting",
+      "variant": "gbr_lr_0.05_depth_5",
+      "feature_set": "engineered_tabular",
+      "params": "{\"learning_rate\": 0.05, \"max_depth\": 5, \"n_estimators\": 220}",
+      "val_mae": 0.4536755905942342,
+      "val_rmse": 1.09734830878948,
+      "val_r2": 0.9998578846533792,
+      "test_mae": 0.4448774394345847,
+      "test_rmse": 1.0657527910084046,
+      "test_r2": 0.9998631356008564
+    },
+    {
+      "family": "linear_regression",
+      "variant": "linear_regression",
+      "feature_set": "engineered_tabular",
+      "params": "{\"features\": [\"category\", \"sentiment_missing\", \"platform\", \"word_count\", \"unique_word_count\", \"avg_word_length\", \"unique_word_ratio\", \"digit_count\", \"digit_ratio\", \"has_digits\"]}",
+      "val_mae": 5.805058303787254,
+      "val_rmse": 9.971345009512712,
+      "val_r2": 0.988265638385012,
+      "test_mae": 5.773220649101211,
+      "test_rmse": 9.681994265868628,
+      "test_r2": 0.9887044552621085
+    },
+    {
+      "family": "random_forest",
+      "variant": "rf_depth_None_leaf_1",
+      "feature_set": "engineered_tabular",
+      "params": "{\"max_depth\": null, \"min_samples_leaf\": 1, \"n_estimators\": 180}",
+      "val_mae": 0.07514477685359092,
+      "val_rmse": 1.4847868536226523,
+      "val_r2": 0.9997398162261821,
+      "test_mae": 0.06480320036967477,
+      "test_rmse": 1.1889001812696327,
+      "test_r2": 0.9998296789505621
+    },
+    {
+      "family": "ridge",
+      "variant": "ridge_alpha_30.0",
+      "feature_set": "engineered_tabular",
+      "params": "{\"alpha\": 30.0}",
+      "val_mae": 5.802560740077744,
+      "val_rmse": 9.967968983907404,
+      "val_r2": 0.988273582909822,
+      "test_mae": 5.770999821208237,
+      "test_rmse": 9.681286718523445,
+      "test_r2": 0.9887061061287472
+    },
+    {
+      "family": "tfidf_ridge",
+      "variant": "tfidf_ridge_alpha_1.0_mf_5000",
+      "feature_set": "text_tfidf",
+      "params": "{\"alpha\": 1.0, \"max_features\": 5000}",
+      "val_mae": 26.16952241993278,
+      "val_rmse": 42.846395910421826,
+      "val_r2": 0.7833390843359737,
+      "test_mae": 25.83730642525483,
+      "test_rmse": 41.87228488707805,
+      "test_r2": 0.7887333927180697
+    },
+    {
+      "family": "tfidf_svd_ridge",
+      "variant": "tfidf_svd_200_alpha_5.0",
+      "feature_set": "text_tfidf_svd",
+      "params": "{\"alpha\": 5.0, \"max_features\": 5000, \"n_components\": 200}",
+      "val_mae": 40.098901236543725,
+      "val_rmse": 60.24145450282359,
+      "val_r2": 0.5717051229957659,
+      "test_mae": 39.49062867512973,
+      "test_rmse": 58.77151744893252,
+      "test_r2": 0.5837911159797715
+    },
+    {
+      "family": "voting_ensemble",
+      "variant": "voting_ridge_extra_hgb",
+      "feature_set": "engineered_tabular",
+      "params": "{\"extra_params\": {\"max_depth\": 30, \"min_samples_leaf\": 1, \"n_estimators\": 220}, \"hgb_params\": {\"learning_rate\": 0.05, \"max_depth\": 5, \"n_estimators\": 220}, \"ridge_alpha\": 30.0}",
+      "val_mae": 1.9714732352220559,
+      "val_rmse": 3.6206214446943545,
+      "val_r2": 0.9984529005914154,
+      "test_mae": 1.9603035282565593,
+      "test_rmse": 3.4251707878167346,
+      "test_r2": 0.9985863496643714
+    }
+  ],
+  "final_test_metrics": {
+    "mae": 0.05477353695256833,
+    "rmse": 1.1466403564002836,
+    "r2": 0.999841571984014
+  }
+}
