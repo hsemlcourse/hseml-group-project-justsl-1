@@ -1,0 +1,12 @@
+feature,importance
+num__word_count,0.9802953077960455
+num__avg_word_length,0.019592527666508923
+num__unique_word_count,5.5539555758905616e-05
+num__unique_word_ratio,3.3334702448515137e-05
+num__digit_count,6.515157696404323e-06
+num__category,5.906610680229045e-06
+num__digit_ratio,5.1028029699456e-06
+num__has_digits,2.6358598719973566e-06
+cat__platform_twitter,1.569794732730282e-06
+cat__platform_reddit,1.5600532869109275e-06
+num__sentiment_missing,0.0

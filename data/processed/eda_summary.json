@@ -1,0 +1,73 @@
+{
+  "raw_shape": [
+    200229,
+    3
+  ],
+  "clean_shape": [
+    198770,
+    12
+  ],
+  "raw_platform_counts": {
+    "twitter": 162980,
+    "reddit": 37249
+  },
+  "clean_platform_counts": {
+    "twitter": 162975,
+    "reddit": 35795
+  },
+  "missing_text_rows": 104,
+  "blank_text_rows": 122,
+  "duplicate_text_platform_rows": 452,
+  "feature_count_before_engineering": 3,
+  "feature_count_after_engineering": 11,
+  "target_summary": {
+    "count": 198770.0,
+    "mean": 126.75110429139207,
+    "std": 91.62541445980882,
+    "min": 1.0,
+    "25%": 61.0,
+    "50%": 108.0,
+    "75%": 182.0,
+    "95%": 245.0,
+    "99%": 473.0,
+    "max": 944.0
+  },
+  "train_shape": [
+    139138,
+    12
+  ],
+  "val_shape": [
+    29816,
+    12
+  ],
+  "test_shape": [
+    29816,
+    12
+  ],
+  "platform_ratio_full": {
+    "twitter": 0.8199,
+    "reddit": 0.1801
+  },
+  "platform_ratio_train": {
+    "twitter": 0.8199,
+    "reddit": 0.1801
+  },
+  "platform_ratio_val": {
+    "twitter": 0.8199,
+    "reddit": 0.1801
+  },
+  "platform_ratio_test": {
+    "twitter": 0.8199,
+    "reddit": 0.1801
+  },
+  "target_mean_full": 126.75110429139207,
+  "target_mean_train": 126.75702539924391,
+  "target_mean_val": 126.86537429568017,
+  "target_mean_test": 126.60920311242286,
+  "correlations": {
+    "word_count": 0.9894426451271295,
+    "unique_word_ratio": -0.5339348128714299,
+    "digit_count": 0.1654910715761131,
+    "category": 0.053094971773160464
+  }
+}
