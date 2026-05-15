@@ -669,6 +669,43 @@ def plot_svd_explained_variance(train_df: pd.DataFrame, images_dir: Path) -> Pat
     return path
 
 
+def save_feature_importance(
+    final_model: object,
+    processed_dir: Path,
+    images_dir: Path,
+) -> Path | None:
+    if not isinstance(final_model, Pipeline):
+        return None
+
+    model = final_model.named_steps.get("model")
+    preprocessor = final_model.named_steps.get("preprocessor")
+    if model is None or preprocessor is None or not hasattr(model, "feature_importances_"):
+        return None
+
+    feature_names = preprocessor.get_feature_names_out()
+    importance_df = pd.DataFrame(
+        {
+            "feature": feature_names,
+            "importance": model.feature_importances_,
+        }
+    ).sort_values(by="importance", ascending=False)
+
+    csv_path = processed_dir / "final_model_feature_importance.csv"
+    importance_df.to_csv(csv_path, index=False)
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+    top_features = importance_df.head(12).copy()
+    sns.barplot(data=top_features, x="importance", y="feature", ax=ax, color="#5B8FF9")
+    ax.set_title("Final model feature importance")
+    ax.set_xlabel("Importance")
+    ax.set_ylabel("Feature")
+    fig.tight_layout()
+    image_path = images_dir / "final_model_feature_importance.png"
+    fig.savefig(image_path, dpi=200)
+    plt.close(fig)
+    return csv_path
+
+
 def save_artifacts(
     results_df: pd.DataFrame,
     artifacts: dict[str, object],
@@ -709,6 +746,7 @@ def main() -> None:
 
     plot_model_comparison(artifacts["best_by_family"], images_dir)
     plot_svd_explained_variance(train_df, images_dir)
+    save_feature_importance(final_model, processed_dir, images_dir)
     save_artifacts(
         results_df=results_df,
         artifacts=artifacts,
